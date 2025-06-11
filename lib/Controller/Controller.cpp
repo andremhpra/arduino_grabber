@@ -66,7 +66,7 @@ void Controller::setMode(ControllerMode new_mode)
     case CONTROLLER_MODE_WHEELS:
         Serial.println("--- WHEELS MODE");
         arm.detach();
-        wheels.stop_movement(); // prevents unwanted moving.
+        wheels.stop_movement(); // Prevents unwanted movement.
 
         break;
     case CONTROLLER_MODE_NONE:
@@ -110,8 +110,8 @@ void Controller::handleCommand(char command)
     case 'A': // LEFT
         main_vector = Vector2<int>(-1, 0);
         break;
-    // RIGHT, 'F' is used rather than 'D' because when connecting the bluetooth, the serial prints out "CONNECTED";
-    // where the 'D' is interpreted as an instruction to move, which shoundn't.
+    // RIGHT, 'F' is used rather than 'D' because when connecting to the bluetooth, the serial prints out "CONNECTED";
+    // where the 'D' is interpreted as an instruction to move, which shouldn't.
     case 'F':
         main_vector = Vector2<int>(1, 0);
         break;
